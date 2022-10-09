@@ -15,6 +15,4 @@ public interface ServicoService extends IAbstractService<Servico, Integer>{
     List<Servico> listAll();
 
     List<Servico> listarPorTipo(EnumTipoServico tipo);
-
-    List<Servico> listarPorProfissional(Profissional profissional);
 }

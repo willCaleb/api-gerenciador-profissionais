@@ -12,6 +12,6 @@ import java.util.List;
 public interface ServicoRepository extends JpaRepository<Servico, Integer> {
 
     @Query("select s from Servico s where s.tipoServico = :tipo")
-    List<Servico> findAllServicosTipo(@Param("tipo") EnumTipoServico tipo);
+    List<Servico> findAllServicosTipo(@Param("tipo") EnumTipoServico tipo);;
 
 }

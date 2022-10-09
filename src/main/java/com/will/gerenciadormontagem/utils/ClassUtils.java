@@ -1,10 +1,11 @@
 package com.will.gerenciadormontagem.utils;
 
 import java.lang.reflect.Method;
+import java.util.Locale;
 
 public class ClassUtils {
     public static Method getGetterMethod(Method method, String name){
-        if(isType(method, "get", name)){
+        if(isType(method, "get".toLowerCase(Locale.ROOT), name)){
             return method;
         }
         return null;

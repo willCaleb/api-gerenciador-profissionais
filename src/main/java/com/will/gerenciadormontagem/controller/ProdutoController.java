@@ -17,8 +17,8 @@ public class ProdutoController extends AbstractController<ProdutoService> implem
     private final ProdutoService produtoService;
 
     @Override
-    public ResponseEntity<Produto> incluir(Produto produto) {
-        return ResponseEntity.ok(produtoService.incluir(produto));
+    public ResponseEntity<ProdutoDTO> incluir(Produto produto) {
+        return ResponseEntity.ok(convert(produtoService.incluir(produto), ProdutoDTO.class));
     }
 
     @Override

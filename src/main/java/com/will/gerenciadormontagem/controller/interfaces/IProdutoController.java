@@ -17,7 +17,7 @@ public interface IProdutoController {
     String PATH = "/produto";
 
     @PostMapping
-    ResponseEntity<Produto> incluir(@RequestBody Produto produto);
+    ResponseEntity<ProdutoDTO> incluir(@RequestBody Produto produto);
 
     @GetMapping
     List<Produto> listar();

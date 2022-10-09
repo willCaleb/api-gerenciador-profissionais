@@ -2,10 +2,12 @@ package com.will.gerenciadormontagem.controller;
 
 import com.will.gerenciadormontagem.controller.interfaces.IServicoController;
 import com.will.gerenciadormontagem.model.dto.ServicoDTO;
+import com.will.gerenciadormontagem.model.entity.Profissional;
 import com.will.gerenciadormontagem.model.entity.Servico;
 import com.will.gerenciadormontagem.model.enums.EnumTipoServico;
 import com.will.gerenciadormontagem.service.ServicoService;
 import lombok.AllArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,8 +22,8 @@ public class ServicoController extends AbstractController<ServicoService> implem
     private ServicoService servicoService;
 
     @PostMapping
-    public ServicoDTO incluir(@RequestBody Servico servico){
-        return convert(servicoService.incluir(servico), ServicoDTO.class);
+    public ServicoDTO incluir(ServicoDTO servicoDTO){
+        return convert(servicoService.incluir(convert(servicoDTO, Servico.class)), ServicoDTO.class);
     }
 
     @Override

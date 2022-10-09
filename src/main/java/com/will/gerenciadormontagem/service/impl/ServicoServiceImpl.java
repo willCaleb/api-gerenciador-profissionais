@@ -1,11 +1,11 @@
 package com.will.gerenciadormontagem.service.impl;
 
-import com.will.gerenciadormontagem.model.entity.Profissional;
 import com.will.gerenciadormontagem.model.entity.Servico;
 import com.will.gerenciadormontagem.model.enums.EnumTipoServico;
 import com.will.gerenciadormontagem.repository.ServicoRepository;
 import com.will.gerenciadormontagem.service.ServicoService;
 import com.will.gerenciadormontagem.utils.ObjectUtils;
+import com.will.gerenciadormontagem.utils.Utils;
 import lombok.AllArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class ServicoServiceImpl implements ServicoService {
     private final ServicoRepository servicoRepository;
     @Override
     public Servico incluir(Servico servico) {
-        System.out.println();
+        onPrepareInsert(servico);
         return servicoRepository.save(servico);
     }
 
@@ -38,12 +38,13 @@ public class ServicoServiceImpl implements ServicoService {
     }
 
     @Override
-    public List<Servico> listarPorProfissional(Profissional profissional) {
-        return null;
-    }
-
-    @Override
     public JpaRepository<Servico, Integer> getRepository() {
         return this.servicoRepository;
+    }
+
+    private void onPrepareInsert(Servico servico){
+        if (Utils.isEmpty(servico.getAtivo())){
+            servico.setAtivo(Boolean.TRUE);
+        }
     }
 }

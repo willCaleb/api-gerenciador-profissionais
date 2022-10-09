@@ -27,4 +27,7 @@ public class Loja extends AbstractEntity<Integer>{
 
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Produto> produtos;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Endereco> enderecos;
 }

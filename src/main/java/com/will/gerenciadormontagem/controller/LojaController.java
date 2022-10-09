@@ -18,8 +18,7 @@ public class LojaController extends AbstractController<LojaService> implements I
     private final LojaService lojaService;
     @Override
     public List<LojaDTO> findAll() {
-        List<LojaDTO>  lojaDtos = convert(lojaService.findAllLoja(), LojaDTO.class);
-        return lojaDtos;
+        return convert(lojaService.findAllLoja(), LojaDTO.class);
     }
 
     @Override
@@ -30,7 +29,6 @@ public class LojaController extends AbstractController<LojaService> implements I
     @Override
     public void editar(Integer id, LojaDTO lojaDTO) {
         Loja loja = convert(lojaDTO, Loja.class);
-
         lojaService.editar(id, loja);
     }
 
