@@ -18,8 +18,6 @@ public interface ProfissionalService extends IAbstractService<Profissional, Inte
 
     void editar(Integer id, Profissional profissional);
 
-//    List<Servico> listarServicosProfissional(Profissional profissional);
-
     Profissional buscarPorId(Integer idProfissional);
 
     Profissional adicionarServico(Profissional profissional, Servico servico );

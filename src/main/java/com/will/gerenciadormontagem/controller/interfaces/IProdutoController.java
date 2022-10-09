@@ -4,13 +4,14 @@ import com.will.gerenciadormontagem.model.dto.ProdutoDTO;
 import com.will.gerenciadormontagem.model.entity.Produto;
 import com.will.gerenciadormontagem.utils.OperationsParam;
 import com.will.gerenciadormontagem.utils.OperationsPath;
+import com.will.gerenciadormontagem.utils.Paths;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping(IProdutoController.PATH)
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(Paths.PRODUTO_PATH)
+@CrossOrigin(origins = Paths.CROSS_ORIGIN)
 public interface IProdutoController {
 
     String PATH = "/produto";

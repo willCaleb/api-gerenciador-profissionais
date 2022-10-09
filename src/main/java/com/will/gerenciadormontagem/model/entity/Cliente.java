@@ -13,10 +13,10 @@ import java.util.List;
 public class Cliente extends AbstractEntity<Integer>{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Endereco> enderecos;
 
     @Column(name = "nome")

@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class Curso extends AbstractEntity<Integer>{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "name")

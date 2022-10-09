@@ -12,7 +12,7 @@ import java.util.List;
 @Table(name = "profissional")
 public class Profissional extends AbstractEntity<Integer>{
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "nome")
@@ -27,6 +27,9 @@ public class Profissional extends AbstractEntity<Integer>{
     @ManyToMany( fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Servico> servicos;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    List<Cliente> clientes;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Cliente> clientes;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Endereco> enderecos;
 }

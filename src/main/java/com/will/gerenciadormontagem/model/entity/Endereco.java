@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class Endereco extends AbstractEntity<Integer>{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "cidade")

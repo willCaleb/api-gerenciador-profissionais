@@ -4,18 +4,18 @@ import com.will.gerenciadormontagem.model.dto.ClienteDTO;
 import com.will.gerenciadormontagem.model.entity.Cliente;
 import com.will.gerenciadormontagem.utils.OperationsParam;
 import com.will.gerenciadormontagem.utils.OperationsPath;
-import org.springframework.http.ResponseEntity;
+import com.will.gerenciadormontagem.utils.Paths;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
-@RequestMapping(ICLienteController.PATH)
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(Paths.CLIENTE_PATH)
+@CrossOrigin(origins = Paths.CROSS_ORIGIN)
 public interface ICLienteController {
-    String PATH = "/cliente";
 
     @PostMapping
-    ClienteDTO incluir(@RequestBody ClienteDTO cliente);
+    ClienteDTO incluir(@Valid @RequestBody ClienteDTO cliente);
 
     @GetMapping("/list")
     List<ClienteDTO> getAll();

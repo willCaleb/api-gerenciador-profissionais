@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-public interface CursoService {
+public interface CursoService extends IAbstractService<Curso, Integer> {
     List<Curso> list();
 
     Curso inserir(Curso curso);

@@ -6,7 +6,9 @@ import com.will.gerenciadormontagem.service.ClienteService;
 import com.will.gerenciadormontagem.utils.ObjectUtils;
 import com.will.gerenciadormontagem.utils.Utils;
 import lombok.AllArgsConstructor;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,12 +21,12 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public Cliente incluir(Cliente cliente) {
 
-        return clienteRepository.save(cliente);
+        return getRepository().save(cliente);
     }
 
     @Override
     public List<Cliente> getAll() {
-        return clienteRepository.findAll();
+        return getRepository().findAll();
     }
 
     @Override
@@ -37,6 +39,11 @@ public class ClienteServiceImpl implements ClienteService {
         clienteManaged.setTelefone(Utils.nvl(cliente.getTelefone(), clienteManaged.getTelefone()));
         clienteManaged.setWhatsapp(Utils.nvl(cliente.getWhatsapp(), clienteManaged.getWhatsapp()));
 
-        clienteRepository.save(clienteManaged);
+        getRepository().save(clienteManaged);
+    }
+
+    @Override
+    public JpaRepository<Cliente, Integer> getRepository() {
+        return this.clienteRepository;
     }
 }

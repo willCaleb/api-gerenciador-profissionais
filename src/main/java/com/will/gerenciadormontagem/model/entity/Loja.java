@@ -13,7 +13,7 @@ import java.util.List;
 public class Loja extends AbstractEntity<Integer>{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "razao_social")

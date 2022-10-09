@@ -1,11 +1,12 @@
 package com.will.gerenciadormontagem.model.dto;
-
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 public class ProfissionalDTO extends AbstractDTO {
 
     private Integer id;
@@ -21,4 +22,6 @@ public class ProfissionalDTO extends AbstractDTO {
     List<ServicoDTO> servicos;
 
     List<ClienteDTO> clientes;
+
+    List<EnderecoDTO> enderecos;
 }

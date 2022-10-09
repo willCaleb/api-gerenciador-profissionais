@@ -1,6 +1,5 @@
 package com.will.gerenciadormontagem.controller;
 
-import com.will.gerenciadormontagem.controller.interfaces.IAbstractController;
 import com.will.gerenciadormontagem.controller.interfaces.IProfissionalController;
 import com.will.gerenciadormontagem.model.dto.ProfissionalDTO;
 import com.will.gerenciadormontagem.model.dto.ServicoDTO;
@@ -9,15 +8,12 @@ import com.will.gerenciadormontagem.model.entity.Servico;
 import com.will.gerenciadormontagem.service.ProfissionalService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @AllArgsConstructor
 public class ProfissionalController extends AbstractController<ProfissionalService> implements IProfissionalController {
 
@@ -26,12 +22,7 @@ public class ProfissionalController extends AbstractController<ProfissionalServi
     @Override
     @Transactional
     public List<ProfissionalDTO> listAll() {
-        List<Profissional> profissionais = profissionalService.list();
-        List<ProfissionalDTO> profissionaisDto = new ArrayList<>();
-
-        profissionais.forEach(profissional -> profissionaisDto
-                .add(convert(profissional, ProfissionalDTO.class)));
-        return profissionaisDto;
+        return convert(profissionalService.list(), ProfissionalDTO.class);
     }
 
     @Override

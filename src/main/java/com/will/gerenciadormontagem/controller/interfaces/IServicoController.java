@@ -3,14 +3,14 @@ package com.will.gerenciadormontagem.controller.interfaces;
 import com.will.gerenciadormontagem.model.dto.ServicoDTO;
 import com.will.gerenciadormontagem.model.entity.Servico;
 import com.will.gerenciadormontagem.model.enums.EnumTipoServico;
+import com.will.gerenciadormontagem.utils.Paths;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping(IServicoController.PATH)
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(Paths.SERVICO_PATH)
+@CrossOrigin(origins = Paths.CROSS_ORIGIN)
 public interface IServicoController {
-    String PATH = "/servico";
 
     @GetMapping("/{id}")
     ServicoDTO findServico(@PathVariable("id") Integer id);

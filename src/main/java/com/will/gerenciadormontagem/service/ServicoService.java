@@ -6,7 +6,7 @@ import com.will.gerenciadormontagem.model.enums.EnumTipoServico;
 
 import java.util.List;
 
-public interface ServicoService {
+public interface ServicoService extends IAbstractService<Servico, Integer>{
 
     Servico incluir(Servico servico);
 

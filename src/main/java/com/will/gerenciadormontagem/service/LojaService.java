@@ -11,4 +11,6 @@ public interface LojaService extends IAbstractService<Loja, Integer> {
     void editar(Integer id, Loja loja);
 
     List<Loja> findAllLoja();
+
+    Loja findById(Integer id);
 }

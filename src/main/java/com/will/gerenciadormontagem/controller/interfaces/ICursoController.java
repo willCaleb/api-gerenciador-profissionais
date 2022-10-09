@@ -1,25 +1,25 @@
 package com.will.gerenciadormontagem.controller.interfaces;
 
-import com.will.gerenciadormontagem.model.entity.Curso;
+import com.will.gerenciadormontagem.model.dto.CursoDTO;
 import com.will.gerenciadormontagem.utils.OperationsParam;
 import com.will.gerenciadormontagem.utils.OperationsPath;
+import com.will.gerenciadormontagem.utils.Paths;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(ICursoController.PATH)
+@CrossOrigin(origins = Paths.CROSS_ORIGIN)
+@RequestMapping(Paths.CURSO_PATH)
 public interface ICursoController {
 
-    String PATH = "/curso";
-
     @GetMapping
-    public List<Curso> list();
+    List<CursoDTO> list();
 
     @PostMapping
-    public ResponseEntity<Curso> inserir(@RequestBody Curso curso);
+    ResponseEntity<CursoDTO> inserir(@Valid @RequestBody CursoDTO curso);
 
     @GetMapping(OperationsPath.ID)
-    public ResponseEntity<Curso> findById(@PathVariable(OperationsParam.ID) Integer id);
+    ResponseEntity<CursoDTO> findById(@PathVariable(OperationsParam.ID) Integer id);
 }

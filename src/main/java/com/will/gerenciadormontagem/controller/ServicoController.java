@@ -15,37 +15,27 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-public class ServicoController extends AbstractController implements IServicoController {
+public class ServicoController extends AbstractController<ServicoService> implements IServicoController {
 
     private ServicoService servicoService;
 
     @PostMapping
     public ServicoDTO incluir(@RequestBody Servico servico){
-        return (ServicoDTO) convert(servicoService.incluir(servico), ServicoDTO.class);
+        return convert(servicoService.incluir(servico), ServicoDTO.class);
     }
 
     @Override
     public List<ServicoDTO> listAll() {
-        List<Servico> servicos = servicoService.listAll();
-        List<ServicoDTO> servicoDTOS = new ArrayList<>();
-        servicos.forEach(servico ->{
-            servicoDTOS.add((ServicoDTO) convert(servico, ServicoDTO.class));
-        });
-        return servicoDTOS;
+        return convert(servicoService.listAll(), ServicoDTO.class);
     }
 
     @Override
     public List<ServicoDTO> listarPorTipo(EnumTipoServico tipo) {
-        List<Servico> servicos = servicoService.listarPorTipo(tipo);
-        List<ServicoDTO> servicoDTOS = new ArrayList<>();
-        servicos.forEach(servico ->{
-            servicoDTOS.add((ServicoDTO) convert(servico, ServicoDTO.class));
-        });
-        return servicoDTOS;
+        return convert(servicoService.listarPorTipo(tipo), ServicoDTO.class);
     }
 
     @Override
     public ServicoDTO findServico(Integer id) {
-        return (ServicoDTO) convert(servicoService.findServico(id), ServicoDTO.class);
+        return convert(servicoService.findServico(id), ServicoDTO.class);
     }
 }

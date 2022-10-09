@@ -23,6 +23,7 @@ public class LojaServiceImpl implements LojaService {
     @Override
     public void editar(Integer id, Loja loja) {
         Loja lojaManaged = ObjectUtils.validate(getRepository().findById(id));
+
         lojaManaged.setCnpj(Utils.nvl(loja.getCnpj(), lojaManaged.getCnpj()));
         lojaManaged.setNomeFantasia(Utils.nvl(loja.getNomeFantasia(), lojaManaged.getNomeFantasia()));
         lojaManaged.setRazaoSocial(Utils.nvl(loja.getRazaoSocial(), lojaManaged.getRazaoSocial()));
@@ -34,6 +35,11 @@ public class LojaServiceImpl implements LojaService {
     @Override
     public List<Loja> findAllLoja() {
         return lojaRepository.findAll();
+    }
+
+    @Override
+    public Loja findById(Integer id) {
+        return ObjectUtils.validate(lojaRepository.findById(id));
     }
 
     @Override

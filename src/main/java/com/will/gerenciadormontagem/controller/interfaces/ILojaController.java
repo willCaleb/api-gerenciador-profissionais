@@ -2,6 +2,7 @@ package com.will.gerenciadormontagem.controller.interfaces;
 
 import com.will.gerenciadormontagem.model.dto.LojaDTO;
 import com.will.gerenciadormontagem.model.entity.Loja;
+import com.will.gerenciadormontagem.utils.OperationsParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,4 +19,7 @@ public interface ILojaController {
 
     @PostMapping
     ResponseEntity<Loja> incluir(@RequestBody Loja loja);
+
+    @PutMapping
+    void editar(@PathVariable(OperationsParam.ID) Integer id, LojaDTO lojaDTO);
 }

@@ -2,18 +2,17 @@ package com.will.gerenciadormontagem.controller.interfaces;
 
 import com.will.gerenciadormontagem.model.dto.ProfissionalDTO;
 import com.will.gerenciadormontagem.model.dto.ServicoDTO;
-import com.will.gerenciadormontagem.model.entity.Profissional;
 import com.will.gerenciadormontagem.utils.OperationsParam;
 import com.will.gerenciadormontagem.utils.OperationsPath;
+import com.will.gerenciadormontagem.utils.Paths;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 
-@RequestMapping(IProfissionalController.PATH)
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(Paths.PROFISSIONAL_PATH)
+@CrossOrigin(origins = Paths.CROSS_ORIGIN)
 public interface IProfissionalController {
-    String PATH = "/profissional";
 
     @GetMapping
     List<ProfissionalDTO> listAll();
@@ -21,19 +20,19 @@ public interface IProfissionalController {
     @PostMapping
     ProfissionalDTO incluir(@Valid @RequestBody ProfissionalDTO profissional);
 
-    @PutMapping("/servico/{id}")
-    void incluirServico(@PathVariable("id") Integer id,
+    @PutMapping("/servico" + OperationsPath.ID)
+    void incluirServico(@PathVariable(OperationsParam.ID) Integer id,
                         @RequestBody ServicoDTO servico);
 
-    @PutMapping("/{id}/servico/{idServico}")
-    void incluirServico(@PathVariable("id") Integer id,
-                        @PathVariable("idServico") Integer idServico);
+    @PutMapping(OperationsPath.PARENT_ID + "/servico" + OperationsPath.ID)
+    void incluirServico(@PathVariable(OperationsParam.PARENT_ID) Integer id,
+                        @PathVariable(OperationsParam.ID) Integer idServico);
 
     @PutMapping
     ProfissionalDTO incluirServico(ServicoDTO servicoDTO, ProfissionalDTO profissionalDTO);
 
-    @PutMapping("/{id}")
-    void editar(@PathVariable("id") Integer id,
+    @PutMapping(OperationsPath.ID)
+    void editar(@PathVariable(OperationsParam.ID) Integer id,
                 @RequestBody ProfissionalDTO profissionalDTO);
 
     @GetMapping(OperationsPath.ID)

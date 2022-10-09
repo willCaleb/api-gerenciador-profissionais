@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 public class Produto extends AbstractEntity<Integer>{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "cod_produto")

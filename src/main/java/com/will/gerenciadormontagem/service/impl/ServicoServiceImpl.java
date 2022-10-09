@@ -7,6 +7,7 @@ import com.will.gerenciadormontagem.repository.ServicoRepository;
 import com.will.gerenciadormontagem.service.ServicoService;
 import com.will.gerenciadormontagem.utils.ObjectUtils;
 import lombok.AllArgsConstructor;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,5 +40,10 @@ public class ServicoServiceImpl implements ServicoService {
     @Override
     public List<Servico> listarPorProfissional(Profissional profissional) {
         return null;
+    }
+
+    @Override
+    public JpaRepository<Servico, Integer> getRepository() {
+        return this.servicoRepository;
     }
 }

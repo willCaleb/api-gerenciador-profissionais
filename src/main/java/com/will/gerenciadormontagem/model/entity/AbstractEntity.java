@@ -10,7 +10,7 @@ public abstract class AbstractEntity<I extends Number> implements Serializable {
         return this.getClass().getSimpleName();
     }
 
-    Integer id;
+//    Integer id;
 
 //    Integer getId(){
 //        this.id = I;

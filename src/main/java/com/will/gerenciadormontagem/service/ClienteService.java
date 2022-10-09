@@ -4,7 +4,7 @@ import com.will.gerenciadormontagem.model.entity.Cliente;
 
 import java.util.List;
 
-public interface ClienteService {
+public interface ClienteService extends IAbstractService<Cliente, Integer>{
 
     Cliente incluir(Cliente cliente);
 
