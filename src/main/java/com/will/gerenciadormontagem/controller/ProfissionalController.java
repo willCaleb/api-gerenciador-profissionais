@@ -22,41 +22,41 @@ public class ProfissionalController extends AbstractController<ProfissionalServi
     @Override
     @Transactional
     public List<ProfissionalDTO> listAll() {
-        return convert(profissionalService.list(), ProfissionalDTO.class);
+        return convert(getService().list(), ProfissionalDTO.class);
     }
 
     @Override
     public ProfissionalDTO incluir(ProfissionalDTO profissionalDTO){
         Profissional profissional = convert(profissionalDTO, Profissional.class);
-        return convert(profissionalService.incluir(profissional), ProfissionalDTO.class);
+        return convert(getService().incluir(profissional), ProfissionalDTO.class);
     }
 
     @Override
     public void incluirServico(Integer idProfissional, ServicoDTO servico) {
-        profissionalService.incluirServico(idProfissional, convert(servico, Servico.class));
+        getService().incluirServico(idProfissional, convert(servico, Servico.class));
     }
 
     @Override
     public void incluirServico(Integer idProfissional, Integer idServico) {
-        profissionalService.incluirServico(idProfissional, idServico);
+        getService().incluirServico(idProfissional, idServico);
     }
 
     @Override
     public ProfissionalDTO incluirServico(ServicoDTO servicoDTO, ProfissionalDTO profissionalDTO) {
         Servico servico = convert(servicoDTO, Servico.class);
         Profissional profissional = convert(profissionalDTO, Profissional.class);
-        return convert(profissionalService.adicionarServico(profissional, servico), ProfissionalDTO.class);
+        return convert(getService().adicionarServico(profissional, servico), ProfissionalDTO.class);
     }
 
     @Override
     public void editar(Integer id, ProfissionalDTO profissionalDTO) {
-        profissionalService.editar(id, convert(profissionalDTO, Profissional.class));
+        getService().editar(id, convert(profissionalDTO, Profissional.class));
     }
 
     @Override
     @Transactional
     public ProfissionalDTO findById(Integer id) {
-        return convert(profissionalService.buscarPorId(id), ProfissionalDTO.class);
+        return convert(getService().buscarPorId(id), ProfissionalDTO.class);
     }
 
     @Override

@@ -18,18 +18,15 @@ public class ClienteServiceImpl implements ClienteService {
 
     private final ClienteRepository clienteRepository;
 
-    @Override
     public Cliente incluir(Cliente cliente) {
 
         return getRepository().save(cliente);
     }
 
-    @Override
     public List<Cliente> getAll() {
         return getRepository().findAll();
     }
 
-    @Override
     public void editar(Integer idCliente, Cliente cliente) {
 
         Cliente clienteManaged = ObjectUtils.validate(clienteRepository.findById(idCliente));

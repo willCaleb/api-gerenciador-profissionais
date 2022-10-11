@@ -3,20 +3,25 @@ package com.will.gerenciadormontagem.controller;
 import com.will.gerenciadormontagem.controller.interfaces.IAbstractController;
 import com.will.gerenciadormontagem.service.IAbstractService;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.security.Provider;
+import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AbstractController<E extends IAbstractService> implements IAbstractController {
 
-    private Class<E> serviceClass;
+    private final Class<E> serviceClass;
 
     private final ModelMapper mapper = new ModelMapper();
 
-    public Provider getService() {
-        return null;
+    @Autowired
+    private ApplicationContext context;
+
+    public AbstractController() {
+        this.serviceClass = resolverServiceClass(this.getClass());
     }
 
     @Override
@@ -34,8 +39,21 @@ public class AbstractController<E extends IAbstractService> implements IAbstract
         return (List<T>) convertList;
     }
 
+    public E getService(){
+        return context.getBean(serviceClass);
+    }
+    @SuppressWarnings("unchecked")
+    private Class<E> resolverServiceClass(Class<?> serviceClass) {
+        try {
+            return (Class<E>) ((ParameterizedType) serviceClass.getGenericSuperclass()).getActualTypeArguments()[0];
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
     @Override
-    public JpaRepository<E, Integer> getRepository() {
+    public JpaRepository getRepository() {
         return null;
     }
 }

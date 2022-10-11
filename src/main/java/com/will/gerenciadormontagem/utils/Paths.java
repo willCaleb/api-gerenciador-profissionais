@@ -15,4 +15,6 @@ public class Paths {
     public static final String CURSO_PATH = Paths.API_PATH + "/curso";
 
     public static final String CLIENTE_PATH = Paths.API_PATH + "/cliente";
+
+    public static final String LOJA_PATH = Paths.API_PATH + "/loja";
 }
