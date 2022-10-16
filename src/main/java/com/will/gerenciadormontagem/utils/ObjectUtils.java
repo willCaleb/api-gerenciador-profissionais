@@ -1,6 +1,6 @@
 package com.will.gerenciadormontagem.utils;
 
-import com.will.gerenciadormontagem.model.dto.exception.ObjectNotFoundException;
+import com.will.gerenciadormontagem.exception.ObjectNotFoundException;
 
 import java.util.Optional;
 

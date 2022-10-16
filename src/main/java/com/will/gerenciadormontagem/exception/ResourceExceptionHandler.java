@@ -1,4 +1,4 @@
-package com.will.gerenciadormontagem.model.dto.exception;
+package com.will.gerenciadormontagem.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -16,20 +16,18 @@ import java.util.List;
 @AllArgsConstructor
 public class ClienteController extends AbstractController<ClienteService> implements ICLienteController {
 
-    private final ClienteService clienteService;
-
     public ClienteDTO incluir(ClienteDTO clienteDto){
-        return convert(clienteService.incluir(convert(clienteDto, Cliente.class)), ClienteDTO.class);
+        return convert(getService().incluir(convert(clienteDto, Cliente.class)), ClienteDTO.class);
     }
 
     @Override
     @Transactional
     public List<ClienteDTO> getAll() {
-        return convert(clienteService.getAll(), ClienteDTO.class);
+        return convert(getService().getAll(), ClienteDTO.class);
     }
 
     @Override
     public void editar(Integer idCliente, Cliente cliente) {
-        clienteService.editar(idCliente, cliente);
+        getService().editar(idCliente, cliente);
     }
 }

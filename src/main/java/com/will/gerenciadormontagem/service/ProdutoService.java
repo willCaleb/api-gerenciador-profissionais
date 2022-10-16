@@ -13,4 +13,6 @@ public interface ProdutoService extends IAbstractService<Produto, Integer>{
     void editar(Integer id, Produto produto);
 
     Produto findById(Integer id);
+
+    void executePromocao(Integer idProduto, Integer idPromocao);
 }

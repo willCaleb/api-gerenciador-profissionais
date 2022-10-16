@@ -1,17 +1,16 @@
 package com.will.gerenciadormontagem.controller.interfaces;
 
 import com.will.gerenciadormontagem.model.dto.ServicoDTO;
-import com.will.gerenciadormontagem.model.entity.Profissional;
 import com.will.gerenciadormontagem.model.enums.EnumTipoServico;
 import com.will.gerenciadormontagem.utils.OperationsParam;
 import com.will.gerenciadormontagem.utils.OperationsPath;
-import com.will.gerenciadormontagem.utils.Paths;
+import com.will.gerenciadormontagem.utils.ApiPaths;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping(Paths.SERVICO_PATH)
-@CrossOrigin(origins = Paths.CROSS_ORIGIN)
+@RequestMapping(ApiPaths.SERVICO_PATH)
+@CrossOrigin(origins = ApiPaths.CROSS_ORIGIN)
 public interface IServicoController {
 
     @GetMapping(OperationsPath.ID)

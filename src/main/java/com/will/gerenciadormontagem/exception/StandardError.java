@@ -1,4 +1,4 @@
-package com.will.gerenciadormontagem.model.dto.exception;
+package com.will.gerenciadormontagem.exception;
 
 public class StandardError {
     private Integer status;

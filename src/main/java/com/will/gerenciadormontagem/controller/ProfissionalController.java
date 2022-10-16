@@ -6,7 +6,6 @@ import com.will.gerenciadormontagem.model.dto.ServicoDTO;
 import com.will.gerenciadormontagem.model.entity.Profissional;
 import com.will.gerenciadormontagem.model.entity.Servico;
 import com.will.gerenciadormontagem.service.ProfissionalService;
-import lombok.AllArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,10 +13,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
 public class ProfissionalController extends AbstractController<ProfissionalService> implements IProfissionalController {
-
-    private final ProfissionalService profissionalService;
 
     @Override
     @Transactional

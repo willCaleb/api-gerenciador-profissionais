@@ -3,7 +3,6 @@ package com.will.gerenciadormontagem.service.impl;
 import com.will.gerenciadormontagem.model.entity.Curso;
 import com.will.gerenciadormontagem.repository.CursoRepository;
 import com.will.gerenciadormontagem.service.CursoService;
-import com.will.gerenciadormontagem.utils.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CursoServiceImpl implements CursoService {
+public class CursoServiceImpl extends AbstractServiceUtil implements CursoService {
     @Autowired
     private CursoRepository cursoRepository;
     @Override
@@ -27,7 +26,7 @@ public class CursoServiceImpl implements CursoService {
 
     @Override
     public ResponseEntity<Curso> findById(Integer id) {
-         return ResponseEntity.ok(ObjectUtils.validate(getRepository().findById(id)));
+         return ResponseEntity.ok(validate(getRepository().findById(id)));
     }
 
     @Override

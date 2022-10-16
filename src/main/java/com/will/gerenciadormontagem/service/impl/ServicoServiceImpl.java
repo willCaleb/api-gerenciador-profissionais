@@ -4,7 +4,6 @@ import com.will.gerenciadormontagem.model.entity.Servico;
 import com.will.gerenciadormontagem.model.enums.EnumTipoServico;
 import com.will.gerenciadormontagem.repository.ServicoRepository;
 import com.will.gerenciadormontagem.service.ServicoService;
-import com.will.gerenciadormontagem.utils.ObjectUtils;
 import com.will.gerenciadormontagem.utils.Utils;
 import lombok.AllArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,7 +13,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class ServicoServiceImpl implements ServicoService {
+public class ServicoServiceImpl extends AbstractServiceUtil implements ServicoService {
     private final ServicoRepository servicoRepository;
     @Override
     public Servico incluir(Servico servico) {
@@ -24,7 +23,7 @@ public class ServicoServiceImpl implements ServicoService {
 
     @Override
     public Servico findServico(Integer id) {
-        return ObjectUtils.validate(servicoRepository.findById(id));
+        return validate(servicoRepository.findById(id));
     }
 
     @Override

@@ -23,17 +23,17 @@ public class ServicoController extends AbstractController<ServicoService> implem
 
     @PostMapping
     public ServicoDTO incluir(ServicoDTO servicoDTO){
-        return convert(servicoService.incluir(convert(servicoDTO, Servico.class)), ServicoDTO.class);
+        return convert(getService().incluir(convert(servicoDTO, Servico.class)), ServicoDTO.class);
     }
 
     @Override
     public List<ServicoDTO> listAll() {
-        return convert(servicoService.listAll(), ServicoDTO.class);
+        return convert(getService().listAll(), ServicoDTO.class);
     }
 
     @Override
     public List<ServicoDTO> listarPorTipo(EnumTipoServico tipo) {
-        return convert(servicoService.listarPorTipo(tipo), ServicoDTO.class);
+        return convert(getService().listarPorTipo(tipo), ServicoDTO.class);
     }
 
     @Override

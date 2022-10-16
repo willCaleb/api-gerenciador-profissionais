@@ -16,19 +16,17 @@ import java.util.List;
 @AllArgsConstructor
 public class CursoController extends AbstractController<CursoService> implements ICursoController {
 
-    private final CursoService cursoService;
-
     public List<CursoDTO> list(){
-        return convert(cursoService.list(), CursoDTO.class);
+        return convert(getService().list(), CursoDTO.class);
     }
 
     public ResponseEntity<CursoDTO> inserir(CursoDTO cursoDTO){
         Curso curso = convert(cursoDTO, Curso.class);
-        return ResponseEntity.status(HttpStatus.CREATED).body(convert(cursoService.inserir(curso), CursoDTO.class));
+        return ResponseEntity.status(HttpStatus.CREATED).body(convert(getService().inserir(curso), CursoDTO.class));
     }
 
     public ResponseEntity<CursoDTO> findById(@PathVariable("id") Integer id){
-        CursoDTO cursoDTO = convert(cursoService.findById(id), CursoDTO.class);
+        CursoDTO cursoDTO = convert(getService().findById(id), CursoDTO.class);
         return ResponseEntity.status(HttpStatus.OK).body(cursoDTO);
     }
 }

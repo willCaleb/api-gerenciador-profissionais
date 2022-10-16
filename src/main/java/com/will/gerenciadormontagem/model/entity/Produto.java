@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Getter
@@ -28,5 +29,8 @@ public class Produto extends AbstractEntity<Integer>{
 
     @Column(name = "disponivel")
     private Boolean disponivel;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Promocao> promocoes;
 
 }

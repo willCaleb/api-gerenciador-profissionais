@@ -4,14 +4,14 @@ import com.will.gerenciadormontagem.model.dto.ClienteDTO;
 import com.will.gerenciadormontagem.model.entity.Cliente;
 import com.will.gerenciadormontagem.utils.OperationsParam;
 import com.will.gerenciadormontagem.utils.OperationsPath;
-import com.will.gerenciadormontagem.utils.Paths;
+import com.will.gerenciadormontagem.utils.ApiPaths;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 
-@RequestMapping(Paths.CLIENTE_PATH)
-@CrossOrigin(origins = Paths.CROSS_ORIGIN)
+@RequestMapping(ApiPaths.CLIENTE_PATH)
+@CrossOrigin(origins = ApiPaths.CROSS_ORIGIN)
 public interface ICLienteController {
 
     @PostMapping

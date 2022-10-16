@@ -4,14 +4,13 @@ import com.will.gerenciadormontagem.model.dto.ProfissionalDTO;
 import com.will.gerenciadormontagem.model.dto.ServicoDTO;
 import com.will.gerenciadormontagem.utils.OperationsParam;
 import com.will.gerenciadormontagem.utils.OperationsPath;
-import com.will.gerenciadormontagem.utils.Paths;
+import com.will.gerenciadormontagem.utils.ApiPaths;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 
-@RequestMapping(Paths.PROFISSIONAL_PATH)
-@CrossOrigin(origins = Paths.CROSS_ORIGIN)
+@RequestMapping(ApiPaths.PROFISSIONAL_PATH)
 public interface IProfissionalController {
 
     @GetMapping

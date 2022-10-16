@@ -3,17 +3,15 @@ package com.will.gerenciadormontagem.controller.interfaces;
 import com.will.gerenciadormontagem.model.dto.LojaDTO;
 import com.will.gerenciadormontagem.model.entity.Loja;
 import com.will.gerenciadormontagem.utils.OperationsParam;
-import com.will.gerenciadormontagem.utils.Paths;
+import com.will.gerenciadormontagem.utils.ApiPaths;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping(Paths.LOJA_PATH)
-@CrossOrigin(origins = Paths.CROSS_ORIGIN)
+@RequestMapping(ApiPaths.LOJA_PATH)
+@CrossOrigin(origins = ApiPaths.CROSS_ORIGIN)
 public interface ILojaController {
-
-    String PATH = "/loja";
 
     @GetMapping("/list")
     List<LojaDTO> findAll();
