@@ -34,5 +34,5 @@ public class ContaServiceImpl extends AbstractServiceUtil implements ContaServic
     public Conta buscarConta(Integer id) {
         return validate(getRepository().findById(id));
     }
-    
+
 }
