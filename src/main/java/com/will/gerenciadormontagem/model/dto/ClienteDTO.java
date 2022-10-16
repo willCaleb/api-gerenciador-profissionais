@@ -1,6 +1,5 @@
 package com.will.gerenciadormontagem.model.dto;
 
-import com.will.gerenciadormontagem.model.entity.Endereco;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,4 +21,6 @@ public class ClienteDTO extends AbstractDTO{
     private String whatsapp;
 
     private List<EnderecoDTO> enderecos;
+
+    private ContaDTO conta;
 }

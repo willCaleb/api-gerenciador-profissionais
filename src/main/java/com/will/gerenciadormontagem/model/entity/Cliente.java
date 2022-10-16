@@ -28,4 +28,8 @@ public class Cliente extends AbstractEntity<Integer>{
     @Column(name = "whatsapp")
     private String whatsapp;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_conta")
+    private Conta conta;
+
 }

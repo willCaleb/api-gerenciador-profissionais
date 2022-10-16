@@ -6,7 +6,7 @@ import com.will.gerenciadormontagem.utils.Utils;
 
 import java.util.Optional;
 
-public class AbstractServiceUtil implements IAbstractServiceUtil {
+public class AbstractServiceUtil<E, I> implements IAbstractServiceUtil {
     @Override
     public <T> T validate(Optional<T> t) {
         return ObjectUtils.validate(t);
